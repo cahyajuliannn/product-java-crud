@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html layout:decorate="~{base}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div class="row mb-2" layout:fragment="content-header">
+    <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Product Category</h1>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="dosen">Test</a></li>
+            <li class="breadcrumb-item active">Index</li>
+        </ol>
+    </div>
+</div>
+
+<div id="ContentBody" layout:fragment="content-body">
+    <div class="card card-success card-outline">
+        <div class="card-header">
+            <h3 class="card-title">
+                <div class="col-lg-12">
+                    <button type="button" class="btn btn-info" id="btn-modal-save">+Add Data</button>
+                </div>
+            </h3>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-striped table-bordered table-hover nowrap" id="TableTets1"
+                   style="width:100%"></table>
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+
+    <!--Modal Add Data-->
+    <div class="modal fade" id="modal-save">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Add</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-katbar" role="form">
+                        <!-- Name -->
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <label for="namakatbar">Name:</label>
+                                <input required type="text" placeholder="input name" id="namakatbar"/>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group">
+
+                            <div class="col-lg-12">
+                                <label for="deskripsi">Description:</label>
+                                <input type="text" placeholder="input description" id="deskripsi"/>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SaveCategory()">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <!--Modal Edit Data-->
+    <div class="modal fade" id="modal-edit">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Edit</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-katbar-edit" role="form">
+                        <input type="hidden" id="productCategoryId-edit" value=""/>
+                        <!-- Name -->
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <label for="namakatbar-edit">Name:</label>
+                                <input required type="text" placeholder="input name" id="namakatbar-edit"/>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group">
+
+                            <div class="col-lg-12">
+                                <label for="deskripsi-edit">Description:</label>
+                                <input type="text" placeholder="input description" id="deskripsi-edit"/>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="EditCategory()">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+</div>
+<!-- d -->
+
+<th:block layout:fragment="add-scripts">
+    <script th:src="@{/adminLTE/dist/js/productcategory/categoryproduct.js}"></script>
+</th:block>
+
+</html>
+
+
+
